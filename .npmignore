@@ -1,0 +1,29 @@
+# test directories
+__tests__/
+test/
+
+# Jest Config
+jest.config.js
+
+# other unnecessary files/directories for running your package
+node_modules/
+*.log
+*.ts
+*.sql
+*.map
+src/
+.env
+
+**/*.ts
+!**/*.d.ts
+
+*.sql
+*.sqlite
+
+todo.txt
+
+.DS_Store
+
+
+
+funnels/

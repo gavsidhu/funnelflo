@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "esnext", // Specify ECMAScript target version
+    "module": "commonjs", // Specify module code generation
+    "outDir": "./dist", // Output directory for compiled files
+    "strict": true, // Enable all strict type checking options
+    "declaration": true,
+    "moduleResolution": "node", // Use Node.js style module resolution
+    "esModuleInterop": true, // Enable emitting ES2015 modules with additional ESModule exports
+    "skipLibCheck": true, // Skip type checking of declaration files
+    "forceConsistentCasingInFileNames": true, // Disallow inconsistently-cased references to same file
+
+    "resolveJsonModule": true, // Include modules imported with '.json' extension
+    "lib": ["es6", "dom"] // Include 'es6' and 'DOM' library files (for FormData and other DOM types)
+    //"rootDir": "./src" // Specify the root directory of input files
+  },
+  "include": [
+    "./src/**/*", // Files to be included in compilation
+    "types",
+    "./funnels/**/*.{ts,js}", // Include handler.ts files in the funnels directory
+    "funnels/digital-brain/handlers.js"
+  ],
+  "exclude": [
+    "node_modules", // Exclude 'node_modules' directory
+    "**/*.spec.ts" // Exclude test files
+  ]
+}
