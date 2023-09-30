@@ -15,7 +15,7 @@ import { isAsyncFunction } from "util/types";
 import { FunnelConfigError, PrefixError } from "./Errors";
 
 export class FunnelFlo {
-  private app: Express;
+  public app: Express;
   private mainFunnelsDir: string;
   private prefixes: string[] = [];
   private sessionOptions: session.SessionOptions;
