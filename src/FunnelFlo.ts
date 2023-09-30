@@ -1,5 +1,4 @@
 import express, {
-  Express,
   NextFunction,
   Request,
   RequestHandler,
@@ -9,13 +8,14 @@ import path from "path";
 import fs from "fs";
 import session from "express-session";
 import { FunnelFloOptions } from "../types/FunnelFlo";
+import { Application } from "../types/index";
 import { FunnelConfig, Route } from "../types/FunnelConfig";
 import { HandlersModule } from "../types/Handlers";
 import { isAsyncFunction } from "util/types";
 import { FunnelConfigError, PrefixError } from "./Errors";
 
 export class FunnelFlo {
-  public app: Express;
+  public app: Application;
   private mainFunnelsDir: string;
   private prefixes: string[] = [];
   private sessionOptions: session.SessionOptions;
