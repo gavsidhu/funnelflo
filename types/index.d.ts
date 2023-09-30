@@ -2,7 +2,13 @@ export * from "./FunnelConfig";
 export * from "./FunnelFlo";
 export * from "./Handlers";
 
-import { Request } from "express";
+import {
+  Request,
+  Response,
+  NextFunction,
+  Application,
+  RequestHandler,
+} from "express";
 import { SessionData } from "express-session";
 
 declare module "express" {
@@ -11,6 +17,12 @@ declare module "express" {
     [key: string]: any;
   }
 }
+
+export interface Request extends Request {}
+export interface Response extends Response {}
+export interface NextFunction extends NextFunction {}
+export interface Application extends Application {}
+export interface RequestHandler extends Request {}
 
 declare module "express-session" {
   interface SessionData {
