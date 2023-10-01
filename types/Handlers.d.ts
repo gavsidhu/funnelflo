@@ -9,7 +9,7 @@ export interface ActionHandlers {
   [key: string]: Handler;
 }
 
-export type Handler = (...args: any) => {};
+export type Handler = (...args: any) => any;
 
 export type PostRenderHandler = (
   req?: Request,
