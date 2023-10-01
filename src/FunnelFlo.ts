@@ -10,7 +10,7 @@ import session from "express-session";
 import { FunnelFloOptions } from "../types/FunnelFlo";
 import { Application } from "../types/index";
 import { FunnelConfig, Route } from "../types/FunnelConfig";
-import { HandlersModule } from "../types/Handlers";
+import { Handler, HandlersModule } from "../types/Handlers";
 import { isAsyncFunction } from "util/types";
 import { FunnelConfigError, PrefixError } from "./Errors";
 
@@ -140,7 +140,7 @@ export class FunnelFlo {
         }
       };
 
-      const handlers: RequestHandler[] = [];
+      const handlers: Handler[] = [];
 
       if (route.handlers) {
         route.handlers.forEach((handlerName) => {

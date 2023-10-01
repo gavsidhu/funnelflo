@@ -6,8 +6,10 @@ export interface HandlersModule {
 }
 
 export interface ActionHandlers {
-  [key: string]: (req?: Response, res?: Response, next?: NextFunction) => {};
+  [key: string]: Handler;
 }
+
+export type Handler = (...args: any) => {};
 
 export type PostRenderHandler = (
   req?: Request,
