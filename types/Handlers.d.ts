@@ -6,7 +6,7 @@ export interface HandlersModule {
 }
 
 export interface ActionHandlers {
-  [key: string]: express.RequestHandler;
+  [key: string]: (req?: Response, res?: Response, next?: NextFunction) => {};
 }
 
 export type PostRenderHandler = (
