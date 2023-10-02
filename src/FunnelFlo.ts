@@ -98,9 +98,23 @@ export class FunnelFlo {
   }
 
   private loadHandlersModule(funnelDir: string): HandlersModule {
-    const handlersModulePath = require.resolve(
-      path.resolve(this.mainFunnelsDir, funnelDir, "handlers")
-    );
+    let handlersModulePath;
+
+    if (process.env.NODE_ENV === "production") {
+      handlersModulePath = require.resolve(
+        path.resolve(
+          __dirname,
+          "..",
+          this.mainFunnelsDir,
+          funnelDir,
+          "handlers"
+        )
+      );
+    } else {
+      handlersModulePath = require.resolve(
+        path.resolve(this.mainFunnelsDir, funnelDir, "handlers")
+      );
+    }
 
     delete require.cache[handlersModulePath];
 
@@ -128,7 +142,6 @@ export class FunnelFlo {
           const renderCallback = (err: any, html: string) => {
             if (isAsyncFunction(postRenderHandler)) {
               res.send(html);
-              postRenderHandler(req, res, "hi", 1).then(() => {});
             } else {
               res.send(html);
 
