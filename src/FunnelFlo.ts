@@ -24,11 +24,11 @@ export class FunnelFlo {
   constructor(options: FunnelFloOptions) {
     const {
       sessionOptions,
-      mainFunnelsDir = "funnels",
+      mainFunnelsDir = "./funnels",
       viewEngine = "ejs",
     } = options;
     this.app = express();
-    this.mainFunnelsDir = path.resolve(__dirname, "..", mainFunnelsDir);
+    this.mainFunnelsDir = path.resolve(process.cwd(), "dist", mainFunnelsDir);
     this.sessionOptions = sessionOptions;
     this.viewEngine = viewEngine;
 
