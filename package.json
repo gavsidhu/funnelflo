@@ -1,6 +1,6 @@
 {
   "name": "funnelflo",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "A framework to build sales funnels and marketing funnels quickly.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
