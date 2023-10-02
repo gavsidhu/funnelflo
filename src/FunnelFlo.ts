@@ -24,11 +24,11 @@ export class FunnelFlo {
   constructor(options: FunnelFloOptions) {
     const {
       sessionOptions,
-      mainFunnelsDir = "./funnels",
+      mainFunnelsDir = "funnels",
       viewEngine = "ejs",
     } = options;
     this.app = express();
-    this.mainFunnelsDir = path.resolve(process.cwd(), mainFunnelsDir);
+    this.mainFunnelsDir = path.resolve(__dirname, "..", mainFunnelsDir);
     this.sessionOptions = sessionOptions;
     this.viewEngine = viewEngine;
 
@@ -98,23 +98,9 @@ export class FunnelFlo {
   }
 
   private loadHandlersModule(funnelDir: string): HandlersModule {
-    let handlersModulePath;
-
-    if (process.env.NODE_ENV === "production") {
-      handlersModulePath = require.resolve(
-        path.resolve(
-          __dirname,
-          "..",
-          this.mainFunnelsDir,
-          funnelDir,
-          "handlers"
-        )
-      );
-    } else {
-      handlersModulePath = require.resolve(
-        path.resolve(this.mainFunnelsDir, funnelDir, "handlers")
-      );
-    }
+    const handlersModulePath = require.resolve(
+      path.resolve(this.mainFunnelsDir, funnelDir, "handlers")
+    );
 
     delete require.cache[handlersModulePath];
 
